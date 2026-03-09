@@ -1,0 +1,8 @@
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/install/strip.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/list_install_components.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/install/local.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/rebuild_cache.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/edit_cache.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/install.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/anc-dump.dir
+/home/pi/508_source_soft_exp/zvbi-test/CMakeFiles/zvbi-test.dir

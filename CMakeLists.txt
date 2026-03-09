@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(PBXMTV508)
+project(PBXMTV508_exp)
 message(STATUS "ON START  CMAKE_CXX_FLAGS_DEBUG = ${CMAKE_CXX_FLAGS_DEBUG}")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -85,11 +85,11 @@ add_executable(pbx-mtv-508
         pbx-mtv-508-main.cpp
         pbx-mtv-508.cpp
         mtv-system/mtv-system.cpp
-	hdmi_adv7513/hdmi_adv7513.cpp
-	i2c/i2c.cpp	
-	web_socket_server/websocketserver.cpp
+        #hdmi_adv7513/hdmi_adv7513.cpp
+        i2c/i2c.cpp
+        web_socket_server/websocketserver.cpp
 	mtv-web/mtv_web.cpp
-	hardware_diagnostics/hardware_diagnostics.cpp
+        hardware_diagnostics/hardware_diagnostics.cpp
         layout/layout.cpp
         cascade_server/cascade_server.cpp
         cascade_ctrl/cascade_ctrl.cpp
@@ -98,7 +98,7 @@ add_executable(pbx-mtv-508
         m26/mb86m26_lib.cpp
         m26/mpeg-dump.cpp
         HlsServer/hlsserver.cpp
-	led/led_class.cpp
+        led/led_class.cpp
 	factory_defaults/factory_defaults.cpp
 	ip-utils/ip-utils.c
         uptime-utils/uptime_utils.cpp
@@ -145,4 +145,3 @@ INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/pbx-mtv-508 DESTINATION bin)
 #target_link_libraries(rgbyuv-test Qt5::Widgets)
 
 #INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/rgbyuv-test DESTINATION bin)
- # for check git in qr-creator
