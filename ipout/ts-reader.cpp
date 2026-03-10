@@ -37,7 +37,7 @@ data_t TsReader::get_data(void)
 
                 data = queue_full.dequeue();
                 mutex.unlock();
-                qDebug() << "ts-reader.cpp 40 \n\t\twait_satus : " << wait_satus << "\ n\t\tdata : " << data.size;
+                //qDebug() << "ts-reader.cpp 40 \n\t\twait_satus : " << wait_satus << "\ n\t\tdata : " << data.size;
                 return data;
         }
         else{

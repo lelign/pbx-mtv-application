@@ -32,10 +32,11 @@
             из цикла в
             void Layout::Settings_Read()
         разобрался с заполнением полей на вкладке Status => Inputs Format, задается в
-        layout.cpp
-        void Layout::slot_new_format()
-        изменил также на будущее
-        mtv_web.cpp => get_json_module_sdi_format()
+            layout.cpp
+            void Layout::slot_new_format()
+            изменил также на будущее
+            mtv_web.cpp => get_json_module_sdi_format()
+        почистил то, что deprecated (width -> horizontalAdvance)
 
 
             

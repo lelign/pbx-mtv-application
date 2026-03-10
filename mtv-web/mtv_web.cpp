@@ -1186,7 +1186,7 @@ void Mtv_web::Settings_Read(){
     set_sys_conf();
     qDebug() << "mtv_web.cpp 1178 "
              "\n\t\tntp_server : " << ntp_server
-             << "\n\t\t\dns_name : " << dns_name
+             << "\n\t\tdns_name : " << dns_name
              << "\n\t\ttime_zone : " << time_zone;
 } // End "Settings_Read"
 
