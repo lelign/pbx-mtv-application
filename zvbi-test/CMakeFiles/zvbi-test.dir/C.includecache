@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/508_source_soft/zvbi-test/zvbi-test.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+libzvbi.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+assert.h
+-
+

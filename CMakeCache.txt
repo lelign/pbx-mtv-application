@@ -236,6 +236,12 @@ PBXMTV508_BINARY_DIR:STATIC=/home/pi/508_source_soft
 //Value Computed by CMake
 PBXMTV508_SOURCE_DIR:STATIC=/home/pi/508_source_soft
 
+//Value Computed by CMake
+PBXMTV508_exp_BINARY_DIR:STATIC=/home/pi/508_source_soft
+
+//Value Computed by CMake
+PBXMTV508_exp_SOURCE_DIR:STATIC=/home/pi/508_source_soft
+
 //The directory containing a CMake configuration file for Qt5Core.
 Qt5Core_DIR:PATH=/usr/lib/arm-linux-gnueabihf/cmake/Qt5Core
 
@@ -388,7 +394,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

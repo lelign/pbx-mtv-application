@@ -1,0 +1,175 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.11"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"build" : "zvbi-test",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.11"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "zvbi-test",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						8,
+						9
+					]
+				},
+				{
+					"build" : "tsl",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.11"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tsl",
+					"targetIndexes" : 
+					[
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "PBXMTV508_exp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "anc-dump::@a2eff1068a85eb670069",
+					"jsonFile" : "target-anc-dump-71a877b06824a9a0f022.json",
+					"name" : "anc-dump",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "anc-dump_autogen::@a2eff1068a85eb670069",
+					"jsonFile" : "target-anc-dump_autogen-f67a30ac47d0faa38add.json",
+					"name" : "anc-dump_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pbx-mtv-508::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pbx-mtv-508-582f2bfbc89f7a6768a6.json",
+					"name" : "pbx-mtv-508",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pbx-mtv-508_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pbx-mtv-508_autogen-ae0b56be4436413a53bd.json",
+					"name" : "pbx-mtv-508_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "tsl-server::@c0e35e482c839f64cb07",
+					"jsonFile" : "target-tsl-server-b60c82b567d9fb81aafd.json",
+					"name" : "tsl-server",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "tsl-server_autogen::@c0e35e482c839f64cb07",
+					"jsonFile" : "target-tsl-server_autogen-b1f1114ea8db744e03e4.json",
+					"name" : "tsl-server_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "tsl-test::@c0e35e482c839f64cb07",
+					"jsonFile" : "target-tsl-test-188bdbb77c181ecfc7a2.json",
+					"name" : "tsl-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "tsl-test_autogen::@c0e35e482c839f64cb07",
+					"jsonFile" : "target-tsl-test_autogen-2baae227d50d000692bc.json",
+					"name" : "tsl-test_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "zvbi-test::@a2eff1068a85eb670069",
+					"jsonFile" : "target-zvbi-test-354d5eb2ebaf3c083dff.json",
+					"name" : "zvbi-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "zvbi-test_autogen::@a2eff1068a85eb670069",
+					"jsonFile" : "target-zvbi-test_autogen-e9d5dd9d6bbc8a825cc1.json",
+					"name" : "zvbi-test_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/pi/508_source_soft",
+		"source" : "/home/pi/508_source_soft"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 1
+	}
+}
