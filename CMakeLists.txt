@@ -128,20 +128,20 @@ add_executable(pbx-mtv-508
         remote_ctrl_preset/remote_ctrl_preset.cpp
 )
 target_link_libraries(pbx-mtv-508 Qt5::Widgets Qt5::Core Qt5::WebSockets Qt5::Svg Qt5::SerialPort ${LIBUSB_1_LIBRARIES} ${ZVBI_LIBRARY} tsl-server)
-#target_link_libraries(pbx-mtv-508 ${LIBUSB_1_LIBRARIES} ${ZVBI_LIBRARY} tsl-server)
+target_link_libraries(pbx-mtv-508 ${LIBUSB_1_LIBRARIES} ${ZVBI_LIBRARY} tsl-server)
 #message(STATUS "CMAKE_CURRENT_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}")
 INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/pbx-mtv-508 DESTINATION bin)
 
-#add_executable(m26-eeprom
-#        m26/m26-eeprom.cpp
-#)
-#target_link_libraries(m26-eeprom ${LIBUSB_1_LIBRARIES})
+add_executable(m26-eeprom
+        m26/m26-eeprom.cpp
+)
+target_link_libraries(m26-eeprom ${LIBUSB_1_LIBRARIES})
 
-#INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/m26-eeprom DESTINATION bin)
+INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/m26-eeprom DESTINATION bin)
 
-#add_executable(rgbyuv-test
-#        rgbyuv-test/rgbyuv-test.cpp
-#)
-#target_link_libraries(rgbyuv-test Qt5::Widgets)
+add_executable(rgbyuv-test
+        rgbyuv-test/rgbyuv-test.cpp
+)
+target_link_libraries(rgbyuv-test Qt5::Widgets)
 
-#INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/rgbyuv-test DESTINATION bin)
+INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/rgbyuv-test DESTINATION bin)
