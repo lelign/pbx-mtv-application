@@ -497,12 +497,13 @@ void Layout::slot_new_format()
     routing_source_video();
     update_alarm();
 
-    for(int i = 0; i < 8; ++i){
+    for(int i = 0; i < 16; ++i){ // for(int i = 0; i < 8; ++i){ Status => Inputs Format (LOSS is here)
         int k = cascade.num * 8 + i;
-        layout_object[k].sdi_format_str = mtvsystem->get_sdi_format_str(i);
-
+        layout_object[k].sdi_format_str = mtvsystem->get_sdi_format_str(i);        
         int state = mtvsystem->get_sdi_status(i);
-        led->set_led_state(i, state);
+        if (i < 8){ // added cause application failed when i => 8
+            led->set_led_state(i, state);
+        }
     }
 }
 
@@ -2217,7 +2218,7 @@ void Layout::update_alarm()
 {
 static int format[8] = {-1, -1, -1, -1, -1, -1, -1, -1};
 
-    for(int i = 0; i < 8; ++i){
+    for(int i = 0; i < 16; ++i){ // for(int i = 0; i < 8; ++i){
         if(format[i] != mtvsystem->get_sdi_format(i)){
             format[i] = mtvsystem->get_sdi_format(i);
 

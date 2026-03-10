@@ -25,11 +25,17 @@
             2 в qt-creator указал новый путь для сборки
             3 через git clone восстановил исходники
             4 в qt-creator восстановил настроки что собирать и как запускать (run in terminal)
-# 10_03 разобрался с порядком нумерации входов, она задается в
-        layout.cpp 
-        QString Layout::sdi_key_name(int i)
-        посредством сдвига и маскировки значения переменной i
-        из цикла в
-        void Layout::Settings_Read()
+# 10_03 разобрался с порядком нумерации входов на вкладке Inputs Setting, задается в
+            layout.cpp 
+            QString Layout::sdi_key_name(int i)
+            посредством сдвига и маскировки значения переменной i
+            из цикла в
+            void Layout::Settings_Read()
+        разобрался с заполнением полей на вкладке Status => Inputs Format, задается в
+        layout.cpp
+        void Layout::slot_new_format()
+        изменил также на будущее
+        mtv_web.cpp => get_json_module_sdi_format()
+
 
             

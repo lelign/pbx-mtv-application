@@ -761,7 +761,7 @@ QJsonArray Mtv_web::get_json_module_sdi_format()
 {
 QJsonArray sdi_input_arr;
 
-    for(uint i = 0; i < 8 ; ++i){
+    for(uint i = 0; i < 16 ; ++i){ // for(uint i = 0; i < 8 ; ++i){
         sdi_input_arr.append(mtvsystem->get_sdi_format_str(i));
     }
 
