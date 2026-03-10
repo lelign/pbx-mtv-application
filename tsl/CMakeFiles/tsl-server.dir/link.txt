@@ -1,2 +1,0 @@
-/usr/bin/ar qc libtsl-server.a CMakeFiles/tsl-server.dir/tsl-server_autogen/mocs_compilation.cpp.o CMakeFiles/tsl-server.dir/tsl-server.cpp.o
-/usr/bin/ranlib libtsl-server.a

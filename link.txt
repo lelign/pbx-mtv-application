@@ -1,1 +1,0 @@
-/usr/bin/cc -rdynamic CMakeFiles/anc-dump.dir/anc-dump.c.o -o anc-dump 
