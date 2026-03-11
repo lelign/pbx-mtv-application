@@ -497,11 +497,11 @@ void Layout::slot_new_format()
     routing_source_video();
     update_alarm();
 
-    for(int i = 0; i < 16; ++i){ // for(int i = 0; i < 8; ++i){ Status => Inputs Format (LOSS is here)
+    for(int i = 0; i < 16; ++i){ // for(int i = 0; i < 8; ++i){ Status => Inputs Format (LOSS is here) // ign
         int k = cascade.num * 8 + i;
         layout_object[k].sdi_format_str = mtvsystem->get_sdi_format_str(i);        
         int state = mtvsystem->get_sdi_status(i);
-        if (i < 8){ // added cause application failed when i => 8
+        if (i < 8){ // added cause application failed when i => 8 // ign
             led->set_led_state(i, state);
         }
     }
@@ -889,8 +889,8 @@ int x1, x2;
 
 QString Layout::sdi_key_name(int i)
 {
-    int major = (i >> 4) + 1; // int major = (i >>   3) + 1; сдвинуть вправо на три бита и добавить 1 до 16 нужно 4 бита
-    int minor = (i & 0x0f) + 1; //int minor = (i & 0x07) + 1; замаскировать
+    int major = (i >> 4) + 1; // int major = (i >>   3) + 1; сдвинуть вправо на три бита и добавить 1 до 16 нужно 4 бита // ign
+    int minor = (i & 0x0f) + 1; //int minor = (i & 0x07) + 1; замаскировать // ign
     return QString("%1.%2").arg(major).arg(minor);
 }
 

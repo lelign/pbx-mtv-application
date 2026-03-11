@@ -5,8 +5,6 @@
 void ProfnextTest::timer_timeout()
 {
         static uint8_t i = 0, ch = 0;
-        // qDebug() << "timer";
-
         union{
                 char data[VAL_MAX_SIZE];
                 uint16_t val;

@@ -18,7 +18,6 @@ Scte_104::Scte_104(int channel, QObject *parent) : QObject(parent)
 
 void Scte_104::slot_scte_104_message(QByteArray message)
 {
-//    qDebug() << "scte_104_message. Channel:" << channel << "-" << message.toHex(' ');
     parse(message);
 }
 

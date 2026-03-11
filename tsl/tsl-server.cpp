@@ -10,7 +10,7 @@ TslServer::TslServer()
         socket->bind(QHostAddress::Any, 15000);
         connect(socket, &QUdpSocket::readyRead, this, &TslServer::dataready);
 
-        //qDebug(category) << "after constructor";
+        
 }
 
 TslServer::~TslServer()

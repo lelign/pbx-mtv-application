@@ -11,19 +11,19 @@ extern "C" {
 void data_ready(uint8_t * data, int len, void * ctx)
 {
     PbxMtv508 * ptr = (PbxMtv508*) ctx;
-    //for(int i=0; i<8; i++)
-        //ptr->hlsserver->add_packet((char*) data+(188+4)*i+4, 188);
+    for(int i=0; i<8; i++)
+        ptr->hlsserver->add_packet((char*) data+(188+4)*i+4, 188);
     free(data);
 }
 
-//PbxMtv508::PbxMtv508()
+//PbxMtv508::PbxMtv508() // ign
 PbxMtv508::PbxMtv508(bool watchdog)
 {
     qDebug() << "Program start";
 
     this->watchdog = new Watchdog(watchdog);
 
-    //hdmi_adv7513 = new Hdmi_adv7513();
+    //hdmi_adv7513 = new Hdmi_adv7513(); // ign
 
     mtvsystem = new PbxMtvSystem;
     connect(mtvsystem->anc_reader, &AncReader::scte_104_data, this, &PbxMtv508::slot_scte_104_data);
@@ -50,7 +50,7 @@ PbxMtv508::PbxMtv508(bool watchdog)
                            this, &PbxMtv508::slot_fan_state);
 
     mtv_web   = new Mtv_web(mtvsystem, hardware_diagnostics, layout);
-    /*mtv_web   = new Mtv_web(mtvsystem, hardware_diagnostics);*/
+    /*mtv_web   = new Mtv_web(mtvsystem, hardware_diagnostics);*/ // ign
     connect(mtv_web, &Mtv_web::signal_reconfigure, this, &PbxMtv508::slot_web_reconfigure);
     
     m26_control->set_std(STD_1080p25);
@@ -140,7 +140,7 @@ void PbxMtv508::indexed_string_event(uint8_t idx, uint16_t val)
     if (idx == CMD_1 && val){
         qCDebug(category) << "profnext reset recieved";
         profnext_test_status.val = 0;
-        //panel->cmd_profnext(TYPE_INDEXED_STRING_P, (T_CMD_NUM)idx, &cmd_attr, profnext_test_status.data);
+        panel->cmd_profnext(TYPE_INDEXED_STRING_P, (T_CMD_NUM)idx, &cmd_attr, profnext_test_status.data);
         slot_reset_to_factory_settings();
     }
 }
@@ -183,8 +183,8 @@ void PbxMtv508::slot_reset_to_factory_settings()
 /*---------------------------------------------------------------------------*/
 void PbxMtv508::device_config()
 {
-    //hdmi_adv7513->adv_7513_set_color(layout->hdmi_color);
-    //hdmi_adv7513->adv_7513_set_hdmi_format(Hdmi_adv7513::HDMI_HD);
+    //hdmi_adv7513->adv_7513_set_color(layout->hdmi_color); // ign
+    //hdmi_adv7513->adv_7513_set_hdmi_format(Hdmi_adv7513::HDMI_HD); // ign
 }
 void PbxMtv508::slot_web_reconfigure()
 {
@@ -242,10 +242,10 @@ void PbxMtv508::slot_txt_page(int page)
 
     if(layout->teletext_cell.enable && layout->layout_object[channel].screen_plan.enable_video && (layout->teletext_cell.page==page)){
 
-//        QImage image_txt = teletext_decoder->get_page(layout->teletext_cell.page);
-//        QImage image_txt; // ign added
-//        if(image_txt.isNull()) return;
-//        layout->display_teletext(image_txt);
+//        QImage image_txt = teletext_decoder->get_page(layout->teletext_cell.page); // ign
+//        QImage image_txt; // ign
+//        if(image_txt.isNull()) return; // ign
+//        layout->display_teletext(image_txt); // ign
 
         QImage image_txt = teletext_decoder->get_page(layout->teletext_cell.page);
 

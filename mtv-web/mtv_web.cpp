@@ -33,7 +33,7 @@ extern "C" {
 //Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnostics, Layout *layout) :
 //Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnostics) :
 //    mtvsystem(mtvsystem), hardware_diagnostics(hardware_diagnostics), layout(layout)
-    //mtvsystem(mtvsystem), hardware_diagnostics(hardware_diagnostics)
+    //mtvsystem(mtvsystem), hardware_diagnostics(hardware_diagnostics) // ign
 
 Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnostics, Layout *layout) :
     mtvsystem(mtvsystem), hardware_diagnostics(hardware_diagnostics), layout(layout)
@@ -83,8 +83,7 @@ Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnos
 
     model_device = get_model_device();
     if (MTV_PBX_5161)
-        model_device = 4; // for PBX-MTV-5161
-    //qDebug() << "begin 82";
+        model_device = 4; // ign for PBX-MTV-5161
     std::srand(std::time(nullptr));
     rand_value = std::rand();
     qDebug() << "mtv_web.cpp 85 "
@@ -1173,21 +1172,16 @@ QJsonObject sys_obj;
 /*---------------------------------------------------------------------------*/
 void Mtv_web::Settings_Read(){
 
-    //qDebug() << "begin 1158";
-
     QSettings settings(QSettings::SystemScope, SETTINGS_SYS_CONFIG_FILE_NAME);
-    //qDebug() << "begin 1161";
     settings.beginGroup("time");
         ntp_server = settings.value("npt_server", "pool.ntp.org" ).toString();
         time_zone   = settings.value("timezone",  "Europe/Moscow").toString();
     settings.endGroup();
-    //qDebug() << "begin 1166";
     settings.beginGroup("DNS");
         dns_name = settings.value("dns_name", "8.8.4.4").toString();
     settings.endGroup();
-    //qDebug() << "begin 1170";
     set_sys_conf();
-    qDebug() << "mtv_web.cpp 1178 "
+    qDebug() << "mtv_web.cpp 1178 " // ign
              "\n\t\tntp_server : " << ntp_server
              << "\n\t\tdns_name : " << dns_name
              << "\n\t\ttime_zone : " << time_zone;
@@ -1198,9 +1192,7 @@ void Mtv_web::Check(){
 }
 /*---------------------------------------------------------------------------*/
 void Mtv_web::Settings_Write(){
-    //qDebug() << "begin 1180";
     QSettings settings(QSettings::SystemScope, SETTINGS_SYS_CONFIG_FILE_NAME);
-    //qDebug() << "begin 1182";
     settings.beginGroup("time");
         settings.setValue("npt_server", ntp_server);
         settings.setValue("timezone",   time_zone);

@@ -730,9 +730,9 @@ void PbxMtvSystem::overlay_sync()
 
 
         //f = open("/dev/mtv-overlay", O_WRONLY);
-        f = open("/dev/media3", O_WRONLY);
-        if (show_debug){
-            qDebug() << "mtv-system.cpp 731\t\tneverend cicle"
+        f = open("/dev/media3", O_WRONLY); // ign
+        if (show_debug){ // ign
+            qDebug() << "mtv-system.cpp 731\t\tneverend cicle" // ign
                         "\n\t\tsudo mknod /dev/mtv-overlay c 249 0 "
                         "\n\t\tsudo chmod go-r /dev/mtv-overlay"
                         "\n\t\tsize of buffer : "<< sizeof(buffer) <<
