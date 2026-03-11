@@ -24,7 +24,7 @@ class Mtv_web : public QObject
     Q_OBJECT
 public:
     explicit Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnostics, Layout *layout);
-    //explicit Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnostics);
+    /*explicit Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnostics);*/
     ~Mtv_web();
 
 

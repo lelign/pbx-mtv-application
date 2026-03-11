@@ -735,7 +735,7 @@ void PbxMtvSystem::overlay_sync()
             qDebug() << "mtv-system.cpp 731\t\tneverend cicle"
                         "\n\t\tsudo mknod /dev/mtv-overlay c 249 0 "
                         "\n\t\tsudo chmod go-r /dev/mtv-overlay"
-                        "\n\t\tbuffer : "<< buffer <<
+                        "\n\t\tsize of buffer : "<< sizeof(buffer) <<
                         "\n\t\t f :" << f;
             show_debug = false;
         }

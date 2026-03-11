@@ -53,14 +53,14 @@ private:
     Mtv_web         *mtv_web;
     Hardware_diagnostics *hardware_diagnostics;
     mb86m26_control *m26_control;
-    //Factory_defaults *factory_defaults;
+    Factory_defaults *factory_defaults;
     Watchdog        *watchdog;
     Gpio            *gpio;
-    //File_handle_leaks *file_handle_leaks;
-    //Scte_104        *scte_104[8];
-    //Mtv_snmp        *mtv_snmp;
+    File_handle_leaks *file_handle_leaks;
+    Scte_104        *scte_104[8];
+    Mtv_snmp        *mtv_snmp;
     TeletextDecoder *teletext_decoder;
-    //ProfnextFrontPanel *panel;
+    ProfnextFrontPanel *panel;
     void send_cascade_log(int category, QString str);
 
     void device_config();
