@@ -28,7 +28,7 @@ class PbxMtv508 : public QObject
 public:
     HlsServer       *hlsserver;
     explicit PbxMtv508(bool watchdog=0);
-    //explicit PbxMtv508();
+    //explicit PbxMtv508(); // ign
     ~PbxMtv508();
     Eventlog *eventlog;
 
@@ -48,7 +48,7 @@ public slots:
 
 private:
     PbxMtvSystem    *mtvsystem;
-    //Hdmi_adv7513    *hdmi_adv7513;
+    //Hdmi_adv7513    *hdmi_adv7513; // ign
     Layout          *layout;
     Mtv_web         *mtv_web;
     Hardware_diagnostics *hardware_diagnostics;
