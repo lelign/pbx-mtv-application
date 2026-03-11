@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/arm-linux-gnueabihf/qt5",
+                "/usr/include/arm-linux-gnueabihf/qt5/QtCore",
+                "/usr/include/arm-linux-gnueabihf/qt5/QtGui",
+                "/usr/include/arm-linux-gnueabihf/qt5/QtWidgets",
+                "/usr/include/libusb-1.0",
+                "/usr/include/arm-linux-gnueabihf/qt5/QtNetwork"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-arm"
+        },
+        {
+            "name": "my_vscode_config",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-arm"
+        }
+    ],
+    "version": 4
+}
