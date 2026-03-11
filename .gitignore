@@ -6,3 +6,5 @@ CMakeOutput.log
 CMakeCache.log
 >>>>>>> 53955c65d34c48bab850e81a82b6c38995569285
 CMakeLists.txt.user
+build/
+
