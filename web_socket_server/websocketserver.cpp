@@ -2,9 +2,12 @@
 #include <QtWebSockets/qwebsocketserver.h>
 #include <QtWebSockets/qwebsocket.h>
 #include <QtCore/QDebug>
+#include <QLoggingCategory> // ign
+#include <QSaveFile>
+#include <qfile.h>
 
 QT_USE_NAMESPACE
-
+static QLoggingCategory category("websocket-server"); // ign
 /**
 *  Конструктор
 **/
@@ -24,15 +27,15 @@ WebSocketServer::WebSocketServer(quint16 port, bool debug, QObject *parent) :
                 connect(m_pWebSocketServer, &QWebSocketServer::closed, this, &WebSocketServer::closed);
         }
 
-        qDebug() << "websocketserver.cpp 28\n\t\t created"; // ign
+        qDebug(category) << " 30 created"; // ign
 }
 void check_void(){
-    qDebug() << "websocketserver.cpp 31 check void"; // ign
+    qDebug(category) << " 31 check void"; // ign
 }
 WebSocketServer::~WebSocketServer()
 {
         m_pWebSocketServer->close();
-        qDebug() << "websocketserver.cpp 34"; // ign
+        qDebug(category) << " 34"; // ign
         qDeleteAll(m_clients.begin(), m_clients.end());
 }
 

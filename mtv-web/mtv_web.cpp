@@ -86,9 +86,7 @@ Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnos
         model_device = 4; // ign for PBX-MTV-5161
     std::srand(std::time(nullptr));
     rand_value = std::rand();
-    qDebug() << "mtv_web.cpp 85 "
-                "\n\t\tmodel_device : " << model_device <<
-                "\n\t\trand_value : " << rand_value;
+    qDebug(category) << "89 model_device : " << model_device << " rand_value : " << rand_value;
 }
 
  Mtv_web::~Mtv_web()
@@ -101,7 +99,7 @@ Mtv_web::Mtv_web(PbxMtvSystem *mtvsystem, Hardware_diagnostics *hardware_diagnos
 /*---------------------------------------------------------------------------*/
 int Mtv_web::get_model_device(){
     #if (BOARD_REV==0)
-    qDebug() << "mtv_web.cpp 100 " <<
+    qDebug(category) << " 100 " <<
         "\n\t\tBOARD_REV : " << BOARD_REV <<
         "\n\t\tPATH_TO_MODEL_DEVICE_FILE : " << PATH_TO_MODEL_DEVICE_FILE <<
         "\n\t\tget PATH_TO_MODEL_DEVICE_FILE : " << get_value(PATH_TO_MODEL_DEVICE_FILE);
@@ -189,8 +187,19 @@ void Mtv_web::check_sdi_format_from_slave(){
 void Mtv_web::clear_sdi_format_str(int cascade_index)
 {
     for(int i = 0; i < 8; i++){
-        int k = (cascade_index + 1) * 8 + i;
-        layout->layout_object[k].sdi_format_str = "";
+        int k = (cascade_index + 1) * 16 + i; // int k = (cascade_index + 1) * 8 + i; // ign for 5161
+        // layout->layout_object[k].sdi_format_str = ""; ign commented
+        if (k < cascade_index){ // ign added cause app failed
+            layout->layout_object[k].sdi_format_str = "";
+                /*
+                qDebug(category) << " clear_sdi_format_str [k] " << k 
+                << "\n\t\tlayout " << layout->layout_object[k].sdi_format_str
+                << "\n\t\tcascade_index " << cascade_index;
+                */
+                
+        }
+       
+        
     }
 }
 /*---------------------------------------------------------------------------*/
@@ -343,7 +352,8 @@ void Mtv_web::cmd_set_preset(QJsonObject data_obj)
 void Mtv_web::cmd_get_layout_presets( QWebSocket *pClient )
 {
     qDebug(category) << "Command get layout presets";
-
+    
+    
     QByteArray to_send_data = get_json_layout_presets();
 
     web_server->senddata( pClient, to_send_data );
@@ -766,7 +776,7 @@ QJsonArray sdi_input_arr;
     for(uint i = 0; i < 16 ; ++i){ //ign for(uint i = 0; i < 8 ; ++i){
         sdi_input_arr.append(mtvsystem->get_sdi_format_str(i));
     }
-
+    
     return sdi_input_arr;
 }
 /*---------------------------------------------------------------------------*/
@@ -815,7 +825,7 @@ QByteArray to_send_data;
 
     get_network_setting();
 
-    to_send_data = get_json_settings();
+    to_send_data = get_json_settings();    
     web_server->senddata( pClient, to_send_data );
 
     to_send_data = get_json_block_configuration();
@@ -879,7 +889,7 @@ QJsonArray sdi_input_arr;
     for(uint i = 0; i < SizeOfArray(layout->layout_object) ; ++i){
         sdi_input_arr.append(layout->layout_object[i].sdi_format_str);
     }
-
+    
     return sdi_input_arr;
 }
 /*---------------------------------------------------------------------------*/
@@ -1018,7 +1028,7 @@ QJsonArray item_list;
     for(uint i = 0; i < SizeOfArray(layout->layout_object); ++i){
         item_list.append(layout->layout_object[i].cell.sdi_format_display);
     }
-
+    
     return item_list;
 }
 /*---------------------------------------------------------------------------*/
@@ -1181,7 +1191,7 @@ void Mtv_web::Settings_Read(){
         dns_name = settings.value("dns_name", "8.8.4.4").toString();
     settings.endGroup();
     set_sys_conf();
-    qDebug() << "mtv_web.cpp 1178 " // ign
+    qDebug(category) << " 1178 " // ign
              "\n\t\tntp_server : " << ntp_server
              << "\n\t\tdns_name : " << dns_name
              << "\n\t\ttime_zone : " << time_zone;
@@ -1201,7 +1211,7 @@ void Mtv_web::Settings_Write(){
     settings.beginGroup("DNS");
         settings.setValue("dns_name", dns_name);
     settings.endGroup();
-    qDebug() << "mtv_web.cpp 1191 Settings_Write()";
+    qDebug(category) << " 1191 Settings_Write()";
 } // End "Settings_Write"
 /*---------------------------------------------------------------------------*/
 void Mtv_web::get_network_setting()

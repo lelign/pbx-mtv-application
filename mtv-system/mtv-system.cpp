@@ -10,7 +10,8 @@
 #include "str-mem-dev.h"
 #include "scaler_coeff.h"
 
-static QLoggingCategory category("SYSTEM");
+//static QLoggingCategory category("SYSTEM");
+static QLoggingCategory category("mtv-system"); // ign
 
 const char * fname = "/dev/str-mem";
 const int video_size = 1920*1080*3;
@@ -275,7 +276,7 @@ PbxMtvSystem::PbxMtvSystem()
         connect(&sdi_format_notify_timer, &QTimer::timeout, this, &PbxMtvSystem::sdi_format_notify_timeout);
         set_audio_source(0);
         reconfigure();
-        qDebug() << "mtv-system.cpp 278" << ANCIN;
+        qDebug(category) << "278" << ANCIN;
         anc_reader = new AncReader(ANCIN, this);
 
         anc_reader->start();
@@ -732,11 +733,7 @@ void PbxMtvSystem::overlay_sync()
         //f = open("/dev/mtv-overlay", O_WRONLY);
         f = open("/dev/media3", O_WRONLY); // ign
         if (show_debug){ // ign
-            qDebug() << "mtv-system.cpp 731\t\tneverend cicle" // ign
-                        "\n\t\tsudo mknod /dev/mtv-overlay c 249 0 "
-                        "\n\t\tsudo chmod go-r /dev/mtv-overlay"
-                        "\n\t\tsize of buffer : "<< sizeof(buffer) <<
-                        "\n\t\t f :" << f;
+            qDebug(category) << "mtv-system.cpp 736 cicle size of buffer : " << sizeof(buffer) << " f :" << f; // ign
             show_debug = false;
         }
 
@@ -860,7 +857,7 @@ QString PbxMtvSystem::get_sdi_format_str(int index)
         case 15:
                 return "LOSS";
         }
-
+        
         return "";
 }
 

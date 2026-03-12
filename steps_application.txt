@@ -61,11 +61,14 @@
             sudo ./pbx-mtv-508
             РАБОТАЕТ !!!
 
-        вернул проект в первоначальное состояние (отслеживание через git) 
-            12_03 вернул, то, что забыл в mtv_web.cpp
+        вернул проект в первоначальное состояние (отслеживание через git)             
             поставил маркеры // ign
             для hls-server добавил файл
             sudo mkdir -p /var/volatile/hls/
-            sudo touch /var/volatile/hls/media_0.ts    
-
+            sudo touch /var/volatile/hls/media_0.ts
+#12_03  make clean && cmake .. . && make -j$(proc) (build faster via vscode)
+            вернул, то, что забыл в mtv_web.cpp
+            устранил ошибку ->  пропадание значений <LOSS> на вкдаке Status -> Inputs  Format
+            через 10 секунд после старта приложения, много чего узнал
+            исправления в mtv_web.cpp 191-199
 

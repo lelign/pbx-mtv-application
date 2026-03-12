@@ -499,11 +499,14 @@ void Layout::slot_new_format()
 
     for(int i = 0; i < 16; ++i){ // for(int i = 0; i < 8; ++i){ Status => Inputs Format (LOSS is here) // ign
         int k = cascade.num * 8 + i;
-        layout_object[k].sdi_format_str = mtvsystem->get_sdi_format_str(i);        
+        layout_object[k].sdi_format_str = mtvsystem->get_sdi_format_str(i);      
         int state = mtvsystem->get_sdi_status(i);
+        
         if (i < 8){ // added cause application failed when i => 8 // ign
             led->set_led_state(i, state);
-        }
+        }        
+        
+        
     }
 }
 
@@ -568,6 +571,7 @@ void Layout::update_sdi_format(int index)
     image_sdi_panel.fill(0x00000000);  // partly transparent background
 
     QString sdi_format = mtvsystem->get_sdi_format_str(layout_object[k].cell.input);
+    
     draw_transparant_text_panel(image_sdi_panel, QRect(0, 0, width, height), FONT_SDI_FORMAT_SIZE, Qt::AlignRight, sdi_format);
 
     int x =layout_object[k].screen_plan.panel_format_video.x();
@@ -2007,6 +2011,7 @@ void Layout::draw_layout_object(QImage &image, layout_object_t layout_object)
 
     if(layout_object.cell.sdi_format_display){
         QString sdi_format = mtvsystem->get_sdi_format_str(layout_object.cell.input);
+        
         draw_transparant_text_panel(image, layout_object.screen_plan.panel_format_video, FONT_SDI_FORMAT_SIZE, Qt::AlignRight, sdi_format);
     }
 
@@ -2216,12 +2221,14 @@ int cascade_num, input;
 /*---------------------------------------------------------------------------*/
 void Layout::update_alarm()
 {
-static int format[8] = {-1, -1, -1, -1, -1, -1, -1, -1};
+// static int format[8] = {-1, -1, -1, -1, -1, -1, -1, -1}; 
+static int format[16] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}; // ign
 
-    for(int i = 0; i < 16; ++i){ // for(int i = 0; i < 8; ++i){
+    for(int i = 0; i < 16; ++i){ // ign for(int i = 0; i < 8; ++i){
+        
         if(format[i] != mtvsystem->get_sdi_format(i)){
             format[i] = mtvsystem->get_sdi_format(i);
-
+            
             if(mtvsystem->get_sdi_status(i)){
                 QString str, state_str;
 
@@ -2229,8 +2236,10 @@ static int format[8] = {-1, -1, -1, -1, -1, -1, -1, -1};
                     continue;   // Не писать в журнал формат 8-го входа
 
                 state_str = mtvsystem->get_sdi_format_str(i);;
+               
                 eventlog_add_input_state("Video Input %1: " + state_str, i);
             }
+            
         }
     }
 }
