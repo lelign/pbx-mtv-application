@@ -729,19 +729,25 @@ void PbxMtvSystem::overlay_sync()
 
         Q_CHECK_PTR(buffer);
 
+        try{
+                /*sudo mknod /dev/mtv-overlay c 249 0*/
+                f = open("/dev/mtv-overlay", O_WRONLY); // < try it 
+                Q_ASSERT(f>0);
 
-        //f = open("/dev/mtv-overlay", O_WRONLY);
-        f = open("/dev/media3", O_WRONLY); // ign
-        if (show_debug){ // ign
-            qDebug(category) << "736 cicle size of buffer : " << sizeof(buffer) << " f :" << f; // ign
-            show_debug = false;
+                write(f, buffer, video_size);
+                
+                close(f);
+                if (show_debug){ // ign
+                        qDebug(category) << "overlay_sync() buffer size : " << sizeof(buffer)
+                        << "\n\t\tvideo_size : " << video_size;
+                        show_debug = false;
+                }
+        }catch (const std::exception& e) {
+                qDebug(category) << "Caught exception:" << e.what();
+        }catch (...) {
+                // Catch any other unknown exceptions
+                qDebug(category) << "Caught an unknown exception";
         }
-
-        Q_ASSERT(f>0);
-
-        write(f, buffer, video_size);
-
-        close(f);
 
 }
 
